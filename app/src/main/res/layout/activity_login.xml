@@ -103,8 +103,12 @@
         android:layout_marginBottom="28dp"
         android:background="@drawable/column_input"
         android:hint="@string/password_hint"
+        android:drawableEnd="@drawable/ic_invisible"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/tv_goto_register"
-        tools:layout_editor_absoluteX="43dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <Button
         android:id="@+id/btn_login"
