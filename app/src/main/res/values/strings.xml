@@ -10,4 +10,13 @@
     <string name="register_with">Or Register with</string>
     <string name="login_with">Or Login with\n</string>
     <string name="goto_register">Dont have an account yet? Register here</string>
+    <string name="sign_up">Create your account</string>
+    <string name="email">Email</string>
+    <string name="goto_login">Already have an account? login here</string>
+    <string name="email_hint">example@gmail.com</string>
+    <string name="create_password">Create a password</string>
+    <string name="create_password_hint">must be 8 characters</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="confirm_password_hint">repeat password</string>
+    <string name="sign_up_btn">Sign Up</string>
 </resources>
