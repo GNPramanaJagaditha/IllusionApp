@@ -19,4 +19,14 @@
     <string name="confirm_password">Confirm password</string>
     <string name="confirm_password_hint">repeat password</string>
     <string name="sign_up_btn">Sign Up</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_gallery">AI-Gallery</string>
+    <string name="nav_scan">Scan</string>
+    <string name="nav_history">History</string>
+    <string name="nav_profile">Profile</string>
+    <string name="bottom_home">Home</string>
+    <string name="bottom_gallery">AI-Gallery</string>
+    <string name="bottom_scan">Scan</string>
+    <string name="bottom_history">History</string>
+    <string name="bottom_profile">Profile</string>
 </resources>
