@@ -32,4 +32,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="upload_image">Upload Image</string>
+    <string name="complete_scan">Verification Completed</string>
+    <string name="ai_detected">AI Detected in Image</string>
+    <string name="accuracy">Detection Accuracy:</string>
+    <string name="confirmation">Our scan confirmed AI-generated content in this image</string>
+    <string name="done">Done</string>
 </resources>
