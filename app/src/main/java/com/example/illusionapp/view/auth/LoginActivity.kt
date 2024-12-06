@@ -1,4 +1,4 @@
-package com.example.illusionapp.view.login
+package com.example.illusionapp.view.auth
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
