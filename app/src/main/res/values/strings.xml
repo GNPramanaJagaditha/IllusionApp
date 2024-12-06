@@ -37,4 +37,14 @@
     <string name="accuracy">Detection Accuracy:</string>
     <string name="confirmation">Our scan confirmed AI-generated content in this image</string>
     <string name="done">Done</string>
+    <string name="photo_container">Photo Container</string>
+    <string name="photo">Profile Picture</string>
+    <string name="news">News</string>
+    <string name="view_all">view all</string>
+    <string name="recent_scan">Recent Scan</string>
+    <string name="home">Home</string>
+    <string name="gallery">Gallery</string>
+    <string name="scan">Scan</string>
+    <string name="profile">Profile</string>
+    <string name="history">History</string>
 </resources>

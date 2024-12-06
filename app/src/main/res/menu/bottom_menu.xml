@@ -10,6 +10,7 @@
         android:title="@string/bottom_gallery"
         android:icon="@drawable/ic_gallery"/>
 
+
     <item
         android:title=""
         android:enabled="true"/>

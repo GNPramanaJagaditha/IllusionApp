@@ -16,7 +16,7 @@
             android:name=".view.result.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".view.register.RegisterActivity"
+            android:name=".view.auth.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".view.main.MainActivity"
