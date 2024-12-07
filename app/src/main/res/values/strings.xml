@@ -47,4 +47,14 @@
     <string name="scan">Scan</string>
     <string name="profile">Profile</string>
     <string name="history">History</string>
+    <string name="profile_settings">Profile Settings</string>
+    <string name="profile_icon">Profile Icon</string>
+    <string name="mode_icon">Mode Icon</string>
+    <string name="mode">Mode</string>
+    <string name="help_icon">Help Icon</string>
+    <string name="help">Help</string>
+    <string name="about_icon">About Icon</string>
+    <string name="about">About</string>
+    <string name="logout_icon">Logout Icon</string>
+    <string name="logout">Logout</string>
 </resources>
