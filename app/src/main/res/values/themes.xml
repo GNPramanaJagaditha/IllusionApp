@@ -4,6 +4,7 @@
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/light_sea_green</item>
         <item name="android:background">@color/bone_white</item>
+        <item name="colorSecondaryContainer">@color/white</item>
     </style>
 
     <style name="Theme.IllusionApp" parent="Base.Theme.IllusionApp" />

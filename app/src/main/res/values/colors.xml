@@ -11,6 +11,10 @@
     <color name="light_sea_green">#FF35A9B2</color>
     <color name="dark_grey">#FF313130</color>
     <color name="grey">#FF929290</color>
-    <color name="brick_brown">#FF8B1F10</color>
+    <color name="brick_brown">#FF8B1F10</color>4
+
+    <color name="selected_color">#00796B</color>
+    <color name="unselected_color">#757575</color>
+
 
 </resources>
