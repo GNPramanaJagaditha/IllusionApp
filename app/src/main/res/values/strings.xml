@@ -59,4 +59,6 @@
     <string name="logout">Logout</string>
     <string name="history_image">History Image</string>
     <string name="news_image">Image News</string>
+    <string name="aiGalleryTitle">AI Gallery</string>
+    <string name="aiHistoryTitle">History</string>
 </resources>
