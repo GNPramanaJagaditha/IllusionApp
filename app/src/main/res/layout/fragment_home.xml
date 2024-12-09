@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <ImageView
             android:id="@+id/home_banner"
             android:layout_width="match_parent"
@@ -20,7 +19,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <ImageView
             android:id="@+id/profile"
@@ -35,7 +33,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/home_banner" />
 
-
         <TextView
             android:id="@+id/tv_recent_scan"
             android:layout_width="wrap_content"
@@ -49,7 +46,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_banner" />
 
-
         <TextView
             android:id="@+id/tv_view_all"
             android:layout_width="wrap_content"
@@ -61,12 +57,26 @@
             app:layout_constraintBaseline_toBaselineOf="@id/tv_recent_scan"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- News Label -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_recent_scan"
+            tools:listitem="@layout/item_history" />
+
         <TextView
             android:id="@+id/tv_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="136dp"
+            android:layout_marginTop="16dp"
             android:text="@string/news"
             android:textColor="@android:color/black"
             android:textSize="16sp"
@@ -74,7 +84,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.043"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_recent_scan" />
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_history" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_news"
+            tools:listitem="@layout/item_news" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
