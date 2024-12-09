@@ -56,5 +56,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation (libs.material)
-
+    implementation(libs.androidx.gridlayout)
 }
