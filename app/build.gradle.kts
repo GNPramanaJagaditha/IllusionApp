@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -57,4 +58,13 @@ dependencies {
 
     implementation (libs.material)
     implementation(libs.androidx.gridlayout)
+
+    implementation (libs.retrofit2.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.glide)
+    implementation (libs.ucrop)
+
+    implementation (libs.androidx.room.runtime)
+    kapt (libs.room.compiler)
+    implementation (libs.room.ktx)
 }

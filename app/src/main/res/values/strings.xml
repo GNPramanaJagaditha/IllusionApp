@@ -29,13 +29,14 @@
     <string name="bottom_scan">Scan</string>
     <string name="bottom_history">History</string>
     <string name="bottom_profile">Profile</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="upload_image">Upload Image</string>
     <string name="complete_scan">Verification Completed</string>
-    <string name="ai_detected">AI Detected in Image</string>
-    <string name="accuracy">Detection Accuracy:</string>
-    <string name="confirmation">Our scan confirmed AI-generated content in this image</string>
+    <string name="ai_detected">AI Detected: %s</string>
+    <string name="accuracy">Accuracy: %.2f%%</string>
+    <string name="confirmation_fake">Our scan confirmed AI-generated content in this image</string>
+    <string name="confirmation_real">Our scan confirmed this is not an AI-generated image</string>
+    <string name="confirmation_default">We cannot decide yet</string>
     <string name="done">Done</string>
     <string name="photo_container">Photo Container</string>
     <string name="photo">Profile Picture</string>
@@ -61,4 +62,6 @@
     <string name="news_image">Image News</string>
     <string name="aiGalleryTitle">AI Gallery</string>
     <string name="aiHistoryTitle">History</string>
+    <string name="placeholder">Image Placeholder</string>
+
 </resources>

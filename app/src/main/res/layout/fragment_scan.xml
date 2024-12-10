@@ -6,10 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".view.main.fragments.ScanFragment">
 
+    <!-- Background ConstraintLayout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Scan Banner -->
         <ImageView
             android:id="@+id/scanBanner"
             android:layout_width="match_parent"
@@ -20,16 +22,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Image Placeholder -->
         <ImageView
             android:id="@+id/imageContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_marginTop="112dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/image_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scanBanner" />
 
+        <!-- ProgressBar (Hidden by default) -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/imageContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Upload Button -->
         <Button
             android:id="@+id/btn_upload"
             android:layout_width="wrap_content"
@@ -39,8 +55,9 @@
             android:text="@string/upload_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageContainer" />
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
 
+        <!-- Guideline for Alignment -->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
