@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme -->
-    <style name="Base.Theme.IllusionApp" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.IllusionApp" parent="Theme.Material3.DayNight">
         <!-- General app colors -->
         <item name="colorPrimary">@color/light_sea_green</item>
         <item name="android:background">@color/bone_white</item>

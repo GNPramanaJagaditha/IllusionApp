@@ -44,6 +44,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
+        android:id="@+id/profileOption"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -94,6 +95,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/helpOption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -114,6 +116,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/aboutOption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

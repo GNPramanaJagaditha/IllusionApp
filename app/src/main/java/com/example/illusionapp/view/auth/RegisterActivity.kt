@@ -21,6 +21,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         sharedPreferencesHelper = SharedPreferencesHelper(this)
 
@@ -73,7 +74,7 @@ class RegisterActivity : AppCompatActivity() {
             binding.etEmail.error = "Enter a valid email"
             return false
         }
-        if (password.isEmpty() || password.length < 6) {
+        if (password.isEmpty() || password.length < 8) {
             binding.etCreatePassword.error = "Password must be at least 6 characters"
             return false
         }

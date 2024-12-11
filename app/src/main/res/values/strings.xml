@@ -33,7 +33,7 @@
     <string name="upload_image">Upload Image</string>
     <string name="complete_scan">Verification Completed</string>
     <string name="ai_detected">AI Detected: %s</string>
-    <string name="accuracy">Accuracy: %.2f%%</string>
+    <string name="accuracy">Confidence: %.2f%%</string>
     <string name="confirmation_fake">Our scan confirmed AI-generated content in this image</string>
     <string name="confirmation_real">Our scan confirmed this is not an AI-generated image</string>
     <string name="confirmation_default">We cannot decide yet</string>
@@ -66,5 +66,18 @@
     <string name="scanning_image">Scanning image...</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="enable_dark_mode">Enable Dark Mode</string>
+    <string name="upload_photo">Upload Photo</string>
+    <string name="profile_photo">Profile Photo</string>
+    <string name="help_title">Help and Support</string>
+    <string name="help_content">Welcome to the help section! Here, you can find answers to common questions about how to use the app. If you need further assistance, please contact our support team.</string>
+    <string name="contact">+62122322333</string>
 
+    <string name="about_title">About Us</string>
+    <string name="about_content">Illusion is an advanced application designed to detect AI-generated deepfake content. By leveraging state-of-the-art algorithms and machine learning models, it analyzes images to identify signs of manipulation or synthetic generation. Illusion is designed for individuals, content creators, and organizations aiming to maintain authenticity and combat misinformation in the digital age. Our mission is to make cutting-edge technology accessible and easy to use for everyone and Keeping users away from the misuse of AI Deepfake.</string>
+
+    <string name="help_logo">Help Logo</string>
+    <string name="about_logo">About Logo</string>
+    <string name="ai_not_detected">AI Not Detected</string>
+    <string name="ai_unknown">We cant decide</string>
+    <string name="ai_is_detected">AI Detected</string>
 </resources>
