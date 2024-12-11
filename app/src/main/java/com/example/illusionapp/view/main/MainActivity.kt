@@ -1,22 +1,33 @@
 package com.example.illusionapp.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.forEach
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.example.illusionapp.view.auth.LoginActivity
 import com.example.illusionapp.R
+import com.example.illusionapp.utils.SharedPreferencesHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var sharedPreferencesHelper: SharedPreferencesHelper
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        sharedPreferencesHelper = SharedPreferencesHelper(this)
+
+        // Check if user is not logged in
+        if (!sharedPreferencesHelper.isUserLoggedIn()) {
+            navigateToLogin()
+            return // Exit early to prevent further initialization
+        }
 
         // Setup NavHostFragment and NavController
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
@@ -29,12 +40,16 @@ class MainActivity : AppCompatActivity() {
         // Handle Floating Action Button (FAB) click
         val fab: FloatingActionButton = findViewById(R.id.scan_fab)
         fab.setOnClickListener {
-            // Navigate to ScanFragment
             navController.navigate(R.id.scanFragment)
         }
 
         // Setup Bottom Navigation menu click for supported items
         setupBottomNavigation(bottomNavigationView)
+    }
+
+    private fun navigateToLogin() {
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     private fun setupBottomNavigation(bottomNavigationView: BottomNavigationView) {
@@ -60,5 +75,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 }

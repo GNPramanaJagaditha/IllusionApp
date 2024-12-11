@@ -29,14 +29,14 @@ import java.util.*
 class ScanFragment : Fragment(R.layout.fragment_scan) {
 
     private val viewModel: PredictionViewModel by viewModels()
-    private val historyViewModel: HistoryViewModel by viewModels() // Declare historyViewModel
+    private val historyViewModel: HistoryViewModel by viewModels()
 
     private val PICK_IMAGE_REQUEST = 1
     private var imageUri: Uri? = null
     private lateinit var progressBar: ProgressBar
     private lateinit var scanningText: TextView
     private lateinit var imageView: ImageView
-    private var shouldResetImage: Boolean = false // Flag to track reset state
+    private var shouldResetImage: Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,7 +50,7 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
             selectImage()
         }
 
-        observeViewModel() // Call custom observeViewModel method
+        observeViewModel()
     }
 
     private fun selectImage() {
@@ -62,6 +62,7 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
             imageUri = data?.data
+            Log.d("ScanFragment", "Selected imageUri: $imageUri")
             imageUri?.let { startImageCropping(it) }
         } else if (requestCode == UCrop.REQUEST_CROP && resultCode == Activity.RESULT_OK) {
             val croppedUri = UCrop.getOutput(data!!)
@@ -70,23 +71,27 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
     }
 
     private fun startImageCropping(uri: Uri) {
-        val destinationUri = Uri.fromFile(File(requireContext().cacheDir, "cropped_image.jpg"))
+        val timestamp = System.currentTimeMillis()
+        val destinationUri = Uri.fromFile(File(requireContext().cacheDir, "cropped_image_$timestamp.jpg"))
         UCrop.of(uri, destinationUri)
             .withAspectRatio(1f, 1f)
             .withMaxResultSize(1080, 1080)
             .start(requireContext(), this)
     }
 
+
     private fun handleCroppedImage(croppedUri: Uri) {
-        imageUri = croppedUri // Update the image URI
-        shouldResetImage = false // Don't reset on returning
-        // Update ImageView with the cropped image
+        imageUri = croppedUri
+        Log.d("ScanFragment", "Cropped imageUri: $imageUri")
+        shouldResetImage = false
         Glide.with(this)
             .load(croppedUri)
             .into(imageView)
-        // Convert cropped URI to File and process it
+
         val file = FileUtils.getFileFromUri(requireContext(), croppedUri)
-        file?.let { viewModel.fetchPrediction(it) }
+        file?.let {
+            viewModel.fetchPrediction(it)
+        }
     }
 
     override fun onResume() {
@@ -95,44 +100,42 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
     }
 
     private fun resetToPlaceholder() {
-        // Reset the ImageView to the placeholder image
         Glide.with(this)
-            .load(R.drawable.image_container) // Placeholder image
+            .load(R.drawable.image_container)
             .into(imageView)
-
-        // Clear the stored image URI
         imageUri = null
     }
 
-    private fun observeViewModel() { // Removed `override`
+    private fun observeViewModel() {
         viewModel.predictionResult.observe(viewLifecycleOwner, Observer { result ->
-            progressBar.visibility = View.GONE // Hide ProgressBar after processing
+            progressBar.visibility = View.GONE
             scanningText.visibility = View.GONE
             result?.let {
-                Log.d("ScanFragment", "Prediction Result: ${it.data.predicted_label}, Confidence: ${it.data.confidence}")
-                shouldResetImage = true // Enable reset when navigating back
+                Log.d(
+                    "ScanFragment",
+                    "Prediction Result: ${it.data.predicted_label}, Confidence: ${it.data.confidence}"
+                )
+                shouldResetImage = true
 
-                // Format the timestamp
                 val currentTimeMillis = System.currentTimeMillis()
-                val formattedTimestamp = "Scanned on: " + SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault())
+                val formattedTimestamp = SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault())
                     .format(Date(currentTimeMillis))
 
                 val intent = Intent(requireContext(), ResultActivity::class.java).apply {
                     putExtra("predicted_label", it.data.predicted_label)
                     putExtra("confidence", it.data.confidence)
-                    putExtra("image_uri", imageUri.toString()) // Pass the image URI
+                    putExtra("image_uri", imageUri.toString())
                 }
 
-                // Save to history
                 val history = History(
                     label = it.data.predicted_label,
                     title = File(imageUri.toString()).name,
-                    timestamp = formattedTimestamp, // Use the formatted timestamp
+                    timestamp = formattedTimestamp,
                     imageUri = imageUri.toString()
                 )
-                historyViewModel.insert(history) // Use the correctly initialized historyViewModel
+                historyViewModel.insert(history)
 
-                startActivity(intent) // Navigate to ResultActivity
+                startActivity(intent)
             }
         })
 
