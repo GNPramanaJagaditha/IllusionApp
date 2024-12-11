@@ -23,6 +23,11 @@ class ModeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mode)
 
+        supportActionBar?.apply {
+            title = "Mode"
+            setDisplayHomeAsUpEnabled(true)
+        }
+
         val darkModeSwitch: SwitchMaterial = findViewById(R.id.switch_dark_mode)
 
         viewModel.darkModeLiveData.observe(this) { isDarkModeEnabled ->
@@ -35,5 +40,9 @@ class ModeActivity : AppCompatActivity() {
         darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
             viewModel.toggleDarkMode(isChecked)
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

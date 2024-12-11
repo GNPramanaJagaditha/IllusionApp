@@ -17,13 +17,21 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         // Retrieve data from Intent
         val predictedLabel = intent.getStringExtra("predicted_label")
         val confidence = intent.getFloatExtra("confidence", 0.0f)
         val imageUri = intent.getStringExtra("image_uri")
 
         // Display prediction results
-        binding.tvAi.text = getString(R.string.ai_detected, predictedLabel)
+// Dynamically set the text of tv_ai based on the predictedLabel
+        binding.tvAi.text = when (predictedLabel?.lowercase()) {
+            "real" -> getString(R.string.ai_not_detected) // AI Not Detected for "real"
+            "fake" -> getString(R.string.ai_is_detected)    // AI Detected for "fake"
+            else -> getString(R.string.ai_unknown)       // Default text for unknown labels
+        }
+
         binding.tvAccuracy.text = getString(R.string.accuracy, confidence * 100)
 
         // Dynamically set confirmation text based on the result
