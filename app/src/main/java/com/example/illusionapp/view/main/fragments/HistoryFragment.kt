@@ -1,60 +1,92 @@
 package com.example.illusionapp.view.main.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.illusionapp.R
+import com.example.illusionapp.databinding.FragmentHistoryBinding
+import com.example.illusionapp.view.adapter.HistoryAdapter
+import com.example.illusionapp.view.viewmodel.HistoryViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class HistoryFragment : Fragment(R.layout.fragment_history) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HistoryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class HistoryFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentHistoryBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private val historyViewModel: HistoryViewModel by viewModels()
+    private val adapter by lazy { HistoryAdapter() }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        _binding = FragmentHistoryBinding.bind(view)
+
+        setupRecyclerView()
+        observeHistory()
+        setupSwipeToDelete() // Add swipe-to-delete logic
+    }
+
+    private fun setupRecyclerView() {
+        binding.recyclerViewHistory.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = this@HistoryFragment.adapter
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history, container, false)
+    private fun observeHistory() {
+        historyViewModel.allHistory.observe(viewLifecycleOwner) { historyList ->
+            adapter.submitList(historyList)
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HistoryFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HistoryFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun setupSwipeToDelete() {
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                // We don't need to handle drag & drop here
+                return false
             }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                val historyItem = adapter.currentList[position]
+
+                // Delete item from database
+                historyViewModel.delete(historyItem)
+
+                // Access the FAB from the MainActivity
+                val fab = requireActivity().findViewById<FloatingActionButton>(R.id.scan_fab)
+
+                // Show Snackbar for undo action
+                Snackbar.make(binding.root, "History item deleted", Snackbar.LENGTH_LONG)
+                    .setAnchorView(fab) // Anchor Snackbar to FAB
+                    .setAction("UNDO") {
+                        historyViewModel.insert(historyItem) // Reinsert the item if undone
+                    }.apply {
+                        view.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.white)
+                        setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                        setActionTextColor(ContextCompat.getColor(requireContext(), R.color.snackbar_action))
+                    }
+                    .show()
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerViewHistory)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

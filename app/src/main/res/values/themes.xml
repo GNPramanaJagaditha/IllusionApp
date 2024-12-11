@@ -1,11 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
+    <!-- Base application theme -->
     <style name="Base.Theme.IllusionApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/light_sea_green</item>
+        <!-- General app colors -->
+        <item name="colorPrimary">@color/light_sea_green</item>
         <item name="android:background">@color/bone_white</item>
-        <item name="colorSecondaryContainer">@color/white</item>
+        <item name="colorSecondaryContainer">@color/transparent</item>
     </style>
 
     <style name="Theme.IllusionApp" parent="Base.Theme.IllusionApp" />
+
+    <!-- Snackbar style -->
+    <style name="SnackbarTheme" parent="Widget.MaterialComponents.Snackbar.FullWidth">
+        <item name="backgroundTint">@color/snackbar_background</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>
