@@ -64,5 +64,7 @@
     <string name="aiHistoryTitle">History</string>
     <string name="placeholder">Image Placeholder</string>
     <string name="scanning_image">Scanning image...</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="enable_dark_mode">Enable Dark Mode</string>
 
 </resources>
