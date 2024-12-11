@@ -131,6 +131,7 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
                     label = it.data.predicted_label,
                     title = File(imageUri.toString()).name,
                     timestamp = formattedTimestamp,
+                    confidence = it.data.confidence,
                     imageUri = imageUri.toString()
                 )
                 historyViewModel.insert(history)

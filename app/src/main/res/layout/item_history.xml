@@ -40,6 +40,12 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/history_confidence"
+                android:layout_width="134dp"
+                android:layout_height="27dp"
+                android:ellipsize="end"/>
+
+            <TextView
                 android:id="@+id/history_time"
                 android:layout_width="285dp"
                 android:layout_height="wrap_content"
