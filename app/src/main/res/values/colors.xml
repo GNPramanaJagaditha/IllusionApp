@@ -16,5 +16,9 @@
     <color name="selected_color">#00796B</color>
     <color name="unselected_color">#757575</color>
 
+    <color name="snackbar_background">#323232</color> <!-- Dark gray -->
+    <color name="snackbar_action">#FF4081</color> <!-- Accent color for Snackbar action -->
+
+
 
 </resources>

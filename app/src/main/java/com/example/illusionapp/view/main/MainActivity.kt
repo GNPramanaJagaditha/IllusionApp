@@ -2,6 +2,7 @@ package com.example.illusionapp.view.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.forEach
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.scanFragment)
         }
 
-        // Optional: Handle Bottom Navigation menu click for unsupported items
+        // Setup Bottom Navigation menu click for supported items
         setupBottomNavigation(bottomNavigationView)
     }
 
@@ -59,4 +60,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 }

@@ -63,5 +63,6 @@
     <string name="aiGalleryTitle">AI Gallery</string>
     <string name="aiHistoryTitle">History</string>
     <string name="placeholder">Image Placeholder</string>
+    <string name="scanning_image">Scanning image...</string>
 
 </resources>
