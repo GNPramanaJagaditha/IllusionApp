@@ -1,36 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Common colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="bone_white">#FFFAFAFA</color> <!-- Slightly lighter for a clean background -->
+    <color name="bone_white">#FFFAFAFA</color>
     <color name="transparent">#00000000</color>
 
-    <!-- Theme-specific colors -->
-    <color name="dirty_blue">#FF4CA5AC</color> <!-- Brighter blue for light mode contrast -->
-    <color name="light_grey">#FFCCCCCC</color> <!-- Light grey for subtle elements -->
-    <color name="birch_brown">#FF6D5545</color> <!-- Lighter brown for visual consistency -->
-    <color name="light_sea_green">#FF63C3CC</color> <!-- Brighter sea green for light mode -->
-    <color name="dark_grey">#FF525252</color> <!-- Medium grey for text and icons -->
-    <color name="grey">#FFB3B3B3</color> <!-- Softer grey for unselected elements -->
-    <color name="brick_brown">#FFC85323</color> <!-- Brighter brown for better readability -->
+    <color name="dirty_blue">#FF4CA5AC</color>
+    <color name="light_grey">#FFCCCCCC</color>
+    <color name="birch_brown">#FF6D5545</color>
+    <color name="light_sea_green">#FF63C3CC</color>
+    <color name="dark_grey">#FF525252</color>
+    <color name="grey">#FFB3B3B3</color>
+    <color name="brick_brown">#FFC85323</color>
     <color name="background">#FFFAFAFA</color>
     <color name="button_text">#FFFFFF</color>
 
-    <!-- Selected/Unselected state colors -->
-    <color name="selected_color">#00796B</color> <!-- Consistent teal for both themes -->
-    <color name="unselected_color">#9E9E9E</color> <!-- Light grey for unselected states -->
+    <color name="selected_color">#00796B</color>
+    <color name="unselected_color">#9E9E9E</color>
 
-    <!-- Snackbar colors -->
-    <color name="snackbar_background">#F5F5F5</color> <!-- Light grey for Snackbar background -->
-    <color name="dark_snackbar_background">#F5F5F5</color> <!-- Matches Snackbar background -->
-    <color name="dark_on_surface">#FF000000</color> <!-- Black text for surface readability -->
-    <color name="snackbar_action">#FF4081</color> <!-- Same accent color for actions -->
+    <color name="snackbar_background">#F5F5F5</color>
+    <color name="dark_snackbar_background">#F5F5F5</color>
+    <color name="dark_on_surface">#FF000000</color>
+    <color name="snackbar_action">#FF4081</color>
 
-    <!-- Additional commonly used light mode colors -->
-    <color name="primary_text">#FF000000</color> <!-- Black for primary text -->
-    <color name="secondary_text">#8A000000</color> <!-- Black with reduced opacity -->
-    <color name="disabled_text">#61000000</color> <!-- Black with even lower opacity -->
+    <color name="primary_text">#FF000000</color>
+    <color name="secondary_text">#8A000000</color>
+    <color name="disabled_text">#61000000</color>
     <color name="divider">#1F000000</color>
     <color name="ed_text">#6F000000</color>
 </resources>

@@ -10,5 +10,5 @@ data class History(
     val title: String,
     val timestamp: String,
     val imageUri: String,
-    val confidence: Float // New confidence field
+    val confidence: Float
 )

@@ -28,18 +28,18 @@ class PredictionViewModel : ViewModel() {
         )
 
         viewModelScope.launch(Dispatchers.IO) {
-            _isLoading.postValue(true) // Show ProgressBar
+            _isLoading.postValue(true)
             try {
                 val response = api.uploadImage(imagePart).execute()
                 if (response.isSuccessful) {
                     _predictionResult.postValue(response.body())
                 } else {
-                    _predictionResult.postValue(null) // Handle API error response
+                    _predictionResult.postValue(null)
                 }
             } catch (e: Exception) {
-                _predictionResult.postValue(null) // Handle exceptions
+                _predictionResult.postValue(null)
             } finally {
-                _isLoading.postValue(false) // Hide ProgressBar
+                _isLoading.postValue(false)
             }
         }
     }

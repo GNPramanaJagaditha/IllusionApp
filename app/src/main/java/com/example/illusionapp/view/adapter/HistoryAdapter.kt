@@ -15,7 +15,6 @@ import com.example.illusionapp.databinding.ItemHistoryBinding
 class HistoryAdapter : ListAdapter<History, HistoryAdapter.HistoryViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
-        // Inflate binding for improved view handling
         val binding = ItemHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HistoryViewHolder(binding)
     }
@@ -29,11 +28,9 @@ class HistoryAdapter : ListAdapter<History, HistoryAdapter.HistoryViewHolder>(Di
         private val labelTextView: TextView = binding.root.findViewById(R.id.history_label)
 
         fun bind(history: History) {
-            // Use data-binding for default fields
             binding.historyLabel.text = history.label
             binding.historyTime.text = history.timestamp
 
-            // Load image with Glide
             Glide.with(binding.historyImage.context)
                 .load(history.imageUri)
                 .placeholder(R.drawable.image_container)

@@ -29,9 +29,6 @@
             android:name=".view.main.profile.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".view.main.DetailNewsActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.auth.LoginActivity"
             android:exported="true" />
         <activity

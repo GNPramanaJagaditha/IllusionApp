@@ -16,7 +16,7 @@ class ThemePreferences(private val context: Context) {
     }
 
     val darkModeFlow: Flow<Boolean> = context.dataStore.data.map { preferences ->
-        preferences[DARK_MODE_KEY] ?: false // Default to light mode
+        preferences[DARK_MODE_KEY] ?: false
     }
 
     suspend fun setDarkMode(enabled: Boolean) {

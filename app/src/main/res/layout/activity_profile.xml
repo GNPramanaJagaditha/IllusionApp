@@ -12,7 +12,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Profile Photo Section -->
         <ImageView
             android:id="@+id/profile_photo"
             android:layout_width="120dp"
@@ -31,7 +30,6 @@
             android:textColor="@color/button_text"
             android:text="@string/upload_photo" />
 
-        <!-- Username Section -->
         <TextView
             android:id="@+id/tv_username_label"
             android:layout_width="wrap_content"
@@ -50,7 +48,6 @@
             android:background="@drawable/column_input"
             android:textSize="16sp" />
 
-        <!-- Password Section -->
         <TextView
             android:id="@+id/tv_password_label"
             android:layout_width="wrap_content"

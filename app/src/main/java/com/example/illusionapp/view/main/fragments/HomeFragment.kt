@@ -36,14 +36,11 @@ class HomeFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
-        // Initialize SharedPreferencesHelper
         sharedPreferencesHelper = SharedPreferencesHelper(requireContext())
 
-        // Profile photo
         profileImageView = root.findViewById(R.id.profile_photo)
         loadProfilePhoto()
 
-        // Initialize RecyclerView for recent scans
         val recentScansRecyclerView = root.findViewById<RecyclerView>(R.id.recycler_view_history)
         recentScansRecyclerView.layoutManager = LinearLayoutManager(
             requireContext(),
@@ -53,14 +50,13 @@ class HomeFragment : Fragment() {
         historyAdapter = HistoryAdapter()
         recentScansRecyclerView.adapter = historyAdapter
 
-        // Initialize RecyclerView for news
         val newsRecyclerView = root.findViewById<RecyclerView>(R.id.recycler_view_news)
         newsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         val newsItems = listOf(
-            NewsItem(R.drawable.news1, "TechCrunch", "AI Revolution in Full Swing"),
-            NewsItem(R.drawable.news2, "BBC News", "Climate Change and You"),
-            NewsItem(R.drawable.news3, "The Verge", "Latest Gadgets Unveiled"),
+            NewsItem(R.drawable.news1, "TechCrunch", "AI Fake nearly to serious disorder, says khan"),
+            NewsItem(R.drawable.news2, "BBC News", "How to spot deepfakes and fake news:Tips and Detection Tools"),
+            NewsItem(R.drawable.news3, "The Verge", "AI: a blessing or a curse"),
         )
 
         val newsAdapter = NewsAdapter(newsItems) { newsItem ->
@@ -72,7 +68,6 @@ class HomeFragment : Fragment() {
         }
         newsRecyclerView.adapter = newsAdapter
 
-        // Set click listener for the profile image
         profileImageView.setOnClickListener {
             val intent = Intent(requireContext(), ProfileActivity::class.java)
             startActivity(intent)
@@ -107,16 +102,14 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadProfilePhoto() {
-        // Retrieve the profile photo URI from SharedPreferences
         val photoUri = sharedPreferencesHelper.getProfilePhotoUri()
         if (!photoUri.isNullOrEmpty()) {
             Glide.with(this)
                 .load(Uri.parse(photoUri))
-                .circleCrop() // Ensures the image is circular
-                .placeholder(R.drawable.profile_container) // Default placeholder
+                .circleCrop()
+                .placeholder(R.drawable.profile_container)
                 .into(profileImageView)
         } else {
-            // Load the default placeholder image
             Glide.with(this)
                 .load(R.drawable.profile_container)
                 .circleCrop()
@@ -126,7 +119,6 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // Reload profile photo when returning to the fragment
         loadProfilePhoto()
     }
 }
