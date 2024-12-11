@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.illusionapp.R
-import com.example.illusionapp.data.GalleryItem
+import com.example.illusionapp.data.dummy.GalleryItem
 
 class GalleryAdapter(private val items: List<GalleryItem>) :
     RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>() {
