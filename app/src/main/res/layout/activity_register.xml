@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/welcome"
-        android:textColor="@color/dark_grey"
+        android:textColor="@color/secondary_text"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/iv_illusion_text"
@@ -21,6 +21,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+
+    <EditText
+        android:id="@+id/et_confirm_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/column_input"
+        android:drawableEnd="@drawable/ic_invisible"
+        android:hint="@string/confirm_password_hint"
+        android:inputType="textPassword"
+        android:textColor="@color/ed_text"
+        app:layout_constraintBottom_toTopOf="@+id/tv_goto_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/iv_illusion_text"
@@ -65,6 +79,7 @@
         android:layout_marginBottom="12dp"
         android:background="@drawable/column_input"
         android:hint="@string/username_hint"
+        android:textColor="@color/ed_text"
         app:layout_constraintBottom_toTopOf="@+id/tv_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -102,6 +117,7 @@
         android:background="@drawable/column_input"
         android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
+        android:textColor="@color/ed_text"
         app:layout_constraintBottom_toTopOf="@+id/tv_create_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -125,6 +141,7 @@
         android:layout_marginBottom="12dp"
         android:background="@drawable/column_input"
         android:hint="@string/create_password_hint"
+        android:textColor="@color/ed_text"
         android:inputType="textPassword"
         android:drawableEnd="@drawable/ic_invisible"
         app:layout_constraintBottom_toTopOf="@+id/tv_confirm_password"
@@ -143,19 +160,6 @@
         app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/et_confirm_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/column_input"
-        android:hint="@string/confirm_password_hint"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/tv_goto_register"
-        android:drawableEnd="@drawable/ic_invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
@@ -163,6 +167,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_bg"
         android:text="@string/sign_up_btn"
+        android:textColor="@color/button_text"
         app:layout_constraintBottom_toTopOf="@+id/tv_login_with"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

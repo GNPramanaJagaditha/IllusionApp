@@ -53,18 +53,5 @@ class ResultActivity : AppCompatActivity() {
         binding.btnDone.setOnClickListener {
             finish()
         }
-
-        // Share button functionality
-        binding.btnShare.setOnClickListener {
-            val shareIntent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(
-                    Intent.EXTRA_TEXT,
-                    "AI Prediction: $predictedLabel (Accuracy: ${"%.2f%%".format(confidence * 100)})"
-                )
-                type = "text/plain"
-            }
-            startActivity(Intent.createChooser(shareIntent, "Share via"))
-        }
     }
 }

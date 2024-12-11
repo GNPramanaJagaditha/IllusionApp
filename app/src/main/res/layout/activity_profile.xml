@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
+            android:textColor="@color/button_text"
             android:text="@string/upload_photo" />
 
         <!-- Username Section -->
@@ -45,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
+            android:textColor="@color/ed_text"
             android:background="@drawable/column_input"
             android:textSize="16sp" />
 
@@ -63,6 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
+            android:textColor="@color/ed_text"
             android:background="@drawable/column_input"
             android:textSize="16sp" />
     </LinearLayout>
