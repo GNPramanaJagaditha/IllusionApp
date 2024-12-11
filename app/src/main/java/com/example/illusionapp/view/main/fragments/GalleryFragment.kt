@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.illusionapp.R
-import com.example.illusionapp.data.GalleryItem
+import com.example.illusionapp.data.dummy.GalleryItem
 import com.example.illusionapp.view.adapter.GalleryAdapter
 
 class GalleryFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.example.illusionapp.data
+package com.example.illusionapp.data.dummy
 
 data class GalleryItem(
     val imageResId: Int,
