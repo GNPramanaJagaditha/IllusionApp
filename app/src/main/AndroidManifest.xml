@@ -20,6 +20,9 @@
         android:theme="@style/Theme.IllusionApp"
         tools:targetApi="31">
         <activity
+            android:name=".view.auth.LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.main.profile.ModeActivity"
             android:exported="false" />
         <activity
