@@ -12,6 +12,6 @@ interface PredictionApi {
     @Multipart
     @POST("predict")
     fun uploadImage(
-        @Part image: MultipartBody.Part // Part for the image file
+        @Part image: MultipartBody.Part
     ): Call<PredictionResponse>
 }

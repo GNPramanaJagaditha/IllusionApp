@@ -20,7 +20,6 @@ class NewsAdapter(
                 .load(newsItem.imageRes)
                 .into(binding.newsImage)
 
-            // Set click listener
             binding.root.setOnClickListener {
                 onItemClick(newsItem)
             }

@@ -24,27 +24,22 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferencesHelper = SharedPreferencesHelper(this)
 
-        // Check if user is not logged in
         if (!sharedPreferencesHelper.isUserLoggedIn()) {
             navigateToLogin()
-            return // Exit early to prevent further initialization
+            return
         }
 
-        // Setup NavHostFragment and NavController
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         navController = navHostFragment.navController
 
-        // Setup Bottom Navigation
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 
-        // Handle Floating Action Button (FAB) click
         val fab: FloatingActionButton = findViewById(R.id.scan_fab)
         fab.setOnClickListener {
             navController.navigate(R.id.scanFragment)
         }
 
-        // Setup Bottom Navigation menu click for supported items
         setupBottomNavigation(bottomNavigationView)
     }
 

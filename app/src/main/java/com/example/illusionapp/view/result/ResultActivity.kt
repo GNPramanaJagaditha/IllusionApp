@@ -19,29 +19,24 @@ class ResultActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        // Retrieve data from Intent
         val predictedLabel = intent.getStringExtra("predicted_label")
         val confidence = intent.getFloatExtra("confidence", 0.0f)
         val imageUri = intent.getStringExtra("image_uri")
 
-        // Display prediction results
-// Dynamically set the text of tv_ai based on the predictedLabel
         binding.tvAi.text = when (predictedLabel?.lowercase()) {
-            "real" -> getString(R.string.ai_not_detected) // AI Not Detected for "real"
-            "fake" -> getString(R.string.ai_is_detected)    // AI Detected for "fake"
-            else -> getString(R.string.ai_unknown)       // Default text for unknown labels
+            "real" -> getString(R.string.ai_not_detected)
+            "fake" -> getString(R.string.ai_is_detected)
+            else -> getString(R.string.ai_unknown)
         }
 
         binding.tvAccuracy.text = getString(R.string.accuracy, confidence * 100)
 
-        // Dynamically set confirmation text based on the result
         when (predictedLabel?.lowercase()) {
             "fake" -> binding.tvConfirmation.text = getString(R.string.confirmation_fake)
             "real" -> binding.tvConfirmation.text = getString(R.string.confirmation_real)
             else -> binding.tvConfirmation.text = getString(R.string.confirmation_default)
         }
 
-        // Load the image into the ImageView
         if (!imageUri.isNullOrEmpty()) {
             Glide.with(this)
                 .load(Uri.parse(imageUri))
@@ -49,7 +44,6 @@ class ResultActivity : AppCompatActivity() {
                 .into(binding.imageResult)
         }
 
-        // Done button functionality
         binding.btnDone.setOnClickListener {
             finish()
         }

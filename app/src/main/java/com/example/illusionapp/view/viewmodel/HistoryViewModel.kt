@@ -18,7 +18,7 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
 
     init {
         val historyDao = AppDatabase.getDatabase(application).historyDao()
-        val api = HistoryRetrofitInstance.api // Use HistoryApi instance
+        val api = HistoryRetrofitInstance.api
         repository = HistoryRepository(historyDao, api)
         allHistory = repository.allHistory
     }

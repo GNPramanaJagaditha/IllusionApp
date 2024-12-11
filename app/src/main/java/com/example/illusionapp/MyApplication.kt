@@ -17,7 +17,6 @@ class MyApplication : Application() {
         val themePreferences = ThemePreferences(this)
 
         applicationScope.launch {
-            // Ensure this runs on the main thread
             val isDarkModeEnabled = themePreferences.darkModeFlow.first()
             AppCompatDelegate.setDefaultNightMode(
                 if (isDarkModeEnabled) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO

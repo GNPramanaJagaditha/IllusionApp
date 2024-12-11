@@ -33,7 +33,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         val helpOption = view.findViewById<LinearLayout>(R.id.helpOption)
         val aboutOption = view.findViewById<LinearLayout>(R.id.aboutOption)
 
-        // Load profile photo on fragment load
         loadProfilePhoto()
 
         modeOption.setOnClickListener {
@@ -62,17 +61,14 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     private fun loadProfilePhoto() {
-        // Retrieve the profile photo URI from SharedPreferences
         val photoUri = sharedPreferencesHelper.getProfilePhotoUri()
         if (!photoUri.isNullOrEmpty()) {
-            // Load the profile photo using Glide and make it circular
             Glide.with(this)
                 .load(Uri.parse(photoUri))
-                .circleCrop() // Ensures the image is circular
-                .placeholder(R.drawable.profile_container) // Default placeholder
+                .circleCrop()
+                .placeholder(R.drawable.profile_container)
                 .into(profilePhoto)
         } else {
-            // Load the default placeholder image
             Glide.with(this)
                 .load(R.drawable.profile_container)
                 .circleCrop()
@@ -81,16 +77,16 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     private fun handleLogout() {
-        sharedPreferencesHelper.setUserLoggedIn(false) // Clear login state
+        sharedPreferencesHelper.setUserLoggedIn(false)
+        sharedPreferencesHelper.clearProfilePhotoUri()
 
         val intent = Intent(requireContext(), LoginActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Clear activity stack
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
     }
 
     override fun onResume() {
         super.onResume()
-        // Reload profile photo when returning to the fragment
         loadProfilePhoto()
     }
 }

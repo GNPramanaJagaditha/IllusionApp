@@ -15,7 +15,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var sharedPreferencesHelper: SharedPreferencesHelper
-    private var isPasswordVisible = false // Toggle state for password visibility
+    private var isPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
 
         sharedPreferencesHelper = SharedPreferencesHelper(this)
 
-        // Toggle password visibility
+
         binding.etCreatePassword.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_invisible, 0)
         binding.etCreatePassword.setOnTouchListener { _, event ->
             if (event.rawX >= (binding.etCreatePassword.right - binding.etCreatePassword.compoundPaddingEnd)) {
@@ -93,7 +93,7 @@ class RegisterActivity : AppCompatActivity() {
             editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
             editText.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_visible, 0)
         }
-        editText.setSelection(editText.text.length) // Retain cursor position
+        editText.setSelection(editText.text.length)
         isPasswordVisible = !isPasswordVisible
     }
 }

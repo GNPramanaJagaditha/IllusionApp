@@ -14,10 +14,6 @@ class AboutActivity : AppCompatActivity() {
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        supportActionBar?.title = getString(R.string.about_title)
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        // Action bar setup
         supportActionBar?.apply {
             title = "About Us"
             setDisplayHomeAsUpEnabled(true)

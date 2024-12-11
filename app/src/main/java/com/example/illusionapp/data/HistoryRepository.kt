@@ -7,7 +7,7 @@ import com.example.illusionapp.data.remote.retrofit.HistoryApi
 
 class HistoryRepository(
     private val historyDao: HistoryDao,
-    private val api: HistoryApi // Correct type
+    private val api: HistoryApi
 ) {
 
     val allHistory: LiveData<List<History>> = historyDao.getAllHistory()
@@ -22,7 +22,7 @@ class HistoryRepository(
                         title = it.image_name,
                         timestamp = System.currentTimeMillis().toString(),
                         confidence = it.confidence,
-                        imageUri = "" // Replace with actual URI if available
+                        imageUri = ""
                     )
                 }
                 historyDao.insertAll(historyList)

@@ -32,7 +32,6 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
         observeHistory()
         setupSwipeToDelete()
 
-        // Fetch API data and update Room Database
         historyViewModel.fetchAndStoreHistory()
     }
 
@@ -45,7 +44,6 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
 
     private fun observeHistory() {
         historyViewModel.allHistory.observe(viewLifecycleOwner) { historyList ->
-            // Update RecyclerView with the combined history list
             adapter.submitList(historyList)
         }
     }
@@ -57,24 +55,21 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
                 viewHolder: RecyclerView.ViewHolder,
                 target: RecyclerView.ViewHolder
             ): Boolean {
-                return false // Drag-and-drop not supported
+                return false
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
                 val historyItem = adapter.currentList[position]
 
-                // Delete item from the Room database
                 historyViewModel.delete(historyItem)
 
-                // Access the FAB from the parent activity
                 val fab = requireActivity().findViewById<FloatingActionButton>(R.id.scan_fab)
 
-                // Show Snackbar for undo functionality
                 Snackbar.make(binding.root, "History item deleted", Snackbar.LENGTH_LONG)
                     .setAnchorView(fab)
                     .setAction("UNDO") {
-                        historyViewModel.insert(historyItem) // Reinsert the item on undo
+                        historyViewModel.insert(historyItem)
                     }.apply {
                         view.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.white)
                         setTextColor(ContextCompat.getColor(requireContext(), R.color.black))

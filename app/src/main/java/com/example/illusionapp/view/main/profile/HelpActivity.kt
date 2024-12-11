@@ -13,7 +13,6 @@ class HelpActivity : AppCompatActivity() {
         binding = ActivityHelpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Action bar setup
         supportActionBar?.apply {
             title = "Help & Support"
             setDisplayHomeAsUpEnabled(true)
