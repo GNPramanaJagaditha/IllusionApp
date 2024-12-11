@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.illusionapp.data.HistoryRepository
 import com.example.illusionapp.data.local.database.AppDatabase
 import com.example.illusionapp.data.local.entity.History
+import com.example.illusionapp.data.remote.retrofit.HistoryRetrofitInstance
+import com.example.illusionapp.data.remote.retrofit.RetrofitInstance
 import kotlinx.coroutines.launch
 
 class HistoryViewModel(application: Application) : AndroidViewModel(application) {
@@ -16,8 +18,13 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
 
     init {
         val historyDao = AppDatabase.getDatabase(application).historyDao()
-        repository = HistoryRepository(historyDao)
+        val api = HistoryRetrofitInstance.api // Use HistoryApi instance
+        repository = HistoryRepository(historyDao, api)
         allHistory = repository.allHistory
+    }
+
+    fun fetchAndStoreHistory() = viewModelScope.launch {
+        repository.fetchAndStoreHistory()
     }
 
     fun insert(history: History) = viewModelScope.launch {
@@ -25,11 +32,11 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
     }
 
     fun delete(history: History) = viewModelScope.launch {
-        repository.delete(history) // Add delete method
+        repository.delete(history)
     }
 
     fun getRecentScans(limit: Int): LiveData<List<History>> {
         return repository.getRecentScans(limit)
     }
-
 }
+

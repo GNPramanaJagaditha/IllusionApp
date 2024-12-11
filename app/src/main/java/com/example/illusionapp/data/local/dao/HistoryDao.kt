@@ -11,12 +11,15 @@ import com.example.illusionapp.data.local.entity.History
 @Dao
 interface HistoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(historyList: List<History>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(history: History)
 
     @Query("SELECT * FROM history_table ORDER BY id DESC")
     fun getAllHistory(): LiveData<List<History>>
 
-    @Delete // Delete method
+    @Delete
     suspend fun delete(history: History)
 
     @Query("SELECT * FROM history_table ORDER BY id DESC LIMIT :limit")

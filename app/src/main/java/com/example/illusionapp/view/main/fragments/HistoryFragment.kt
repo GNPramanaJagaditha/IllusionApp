@@ -30,7 +30,10 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
 
         setupRecyclerView()
         observeHistory()
-        setupSwipeToDelete() // Add swipe-to-delete logic
+        setupSwipeToDelete()
+
+        // Fetch API data and update Room Database
+        historyViewModel.fetchAndStoreHistory()
     }
 
     private fun setupRecyclerView() {
@@ -42,6 +45,7 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
 
     private fun observeHistory() {
         historyViewModel.allHistory.observe(viewLifecycleOwner) { historyList ->
+            // Update RecyclerView with the combined history list
             adapter.submitList(historyList)
         }
     }
@@ -53,25 +57,24 @@ class HistoryFragment : Fragment(R.layout.fragment_history) {
                 viewHolder: RecyclerView.ViewHolder,
                 target: RecyclerView.ViewHolder
             ): Boolean {
-                // We don't need to handle drag & drop here
-                return false
+                return false // Drag-and-drop not supported
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
                 val historyItem = adapter.currentList[position]
 
-                // Delete item from database
+                // Delete item from the Room database
                 historyViewModel.delete(historyItem)
 
-                // Access the FAB from the MainActivity
+                // Access the FAB from the parent activity
                 val fab = requireActivity().findViewById<FloatingActionButton>(R.id.scan_fab)
 
-                // Show Snackbar for undo action
+                // Show Snackbar for undo functionality
                 Snackbar.make(binding.root, "History item deleted", Snackbar.LENGTH_LONG)
-                    .setAnchorView(fab) // Anchor Snackbar to FAB
+                    .setAnchorView(fab)
                     .setAction("UNDO") {
-                        historyViewModel.insert(historyItem) // Reinsert the item if undone
+                        historyViewModel.insert(historyItem) // Reinsert the item on undo
                     }.apply {
                         view.backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.white)
                         setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
