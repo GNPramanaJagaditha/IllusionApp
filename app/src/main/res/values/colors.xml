@@ -19,6 +19,19 @@
     <color name="snackbar_background">#323232</color> <!-- Dark gray -->
     <color name="snackbar_action">#FF4081</color> <!-- Accent color for Snackbar action -->
 
-
+    <color name="dark_background">#121212</color> <!-- Background color for dark mode -->
+    <color name="dark_surface">#1E1E1E</color> <!-- Card or surface background -->
+    <color name="dark_primary">#90CAF9</color> <!-- Light blue -->
+    <color name="dark_primary_variant">#64B5F6</color> <!-- Slightly lighter blue -->
+    <color name="dark_secondary">#FF4081</color> <!-- Pink -->
+    <color name="dark_secondary_variant">#F06292</color> <!-- Lighter pink -->
+    <color name="dark_on_background">#E0E0E0</color> <!-- Text on background -->
+    <color name="dark_on_surface">#BDBDBD</color> <!-- Text on surfaces -->
+    <color name="dark_on_primary">#121212</color> <!-- Text on primary -->
+    <color name="dark_on_secondary">#121212</color> <!-- Text on secondary -->
+    <color name="dark_snackbar_background">#323232</color> <!-- Snackbar background -->
+    <color name="dark_snackbar_action">#FF4081</color> <!-- Accent color for Snackbar action -->
+    <color name="dark_selected_color">#80CBC4</color> <!-- Selected color for tabs/buttons -->
+    <color name="dark_unselected_color">#757575</color> <!-- Unselected color -->
 
 </resources>
