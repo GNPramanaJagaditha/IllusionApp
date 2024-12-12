@@ -57,7 +57,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation (libs.material)
-    implementation(libs.androidx.gridlayout)
 
     implementation (libs.retrofit2.retrofit)
     implementation (libs.converter.gson)

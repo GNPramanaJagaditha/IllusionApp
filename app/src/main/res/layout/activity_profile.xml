@@ -65,5 +65,14 @@
             android:textColor="@color/ed_text"
             android:background="@drawable/column_input"
             android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_delete_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/button_text"
+            android:text="@string/delete_account" />
     </LinearLayout>
 </ScrollView>
