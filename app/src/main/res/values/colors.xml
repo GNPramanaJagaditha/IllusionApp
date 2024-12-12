@@ -12,6 +12,7 @@
     <color name="dark_grey">#FF525252</color>
     <color name="grey">#FFB3B3B3</color>
     <color name="brick_brown">#FFC85323</color>
+    <color name="red">#D51C00</color>
     <color name="background">#FFFAFAFA</color>
     <color name="button_text">#FFFFFF</color>
 
@@ -28,4 +29,5 @@
     <color name="disabled_text">#61000000</color>
     <color name="divider">#1F000000</color>
     <color name="ed_text">#6F000000</color>
+    <color name="splash_screen">#6FF0F0F0</color>
 </resources>

@@ -80,4 +80,5 @@
     <string name="ai_not_detected">AI Not Detected</string>
     <string name="ai_unknown">We cant decide</string>
     <string name="ai_is_detected">AI Detected</string>
+    <string name="delete_account">Delete Account</string>
 </resources>
